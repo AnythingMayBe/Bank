@@ -1,4 +1,5 @@
 from flask import Flask
+import json
 
 class Application:
     def __init__(self):
@@ -9,7 +10,9 @@ class Application:
         pass
 
     def loadJson(self):
-        pass
+        with open("db.json", "r") as file:
+            self.db = json.loads(file.read())
+            file.close()
 
     def saveJson(self):
         pass
