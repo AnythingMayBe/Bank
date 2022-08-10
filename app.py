@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import json
 import shutil
 import time
@@ -15,7 +15,11 @@ class Application:
         self.db = {}
 
     def routes(self):
-        pass
+        @self.app.route("/api/gentoken")
+        def gentoken():
+            return self.genToken(int(request.args.get("amount")))
+        
+            
 
     def loadJson(self):
         with open("db.json", "r") as file:
