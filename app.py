@@ -19,6 +19,11 @@ class Application:
         def gentoken():
             return self.genToken(int(request.args.get("amount")))
         
+        @self.app.route("/api/redeem")
+        def redeem():
+            t = self.genToken(self.db["tokens"][request.args.get("token")])
+            del self.db["tokens"][request.args.get("token")]
+            return t
             
 
     def loadJson(self):
