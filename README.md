@@ -1,4 +1,4 @@
-## Bank
+### Bank
 A centralized bank.
 
 ## Important note
