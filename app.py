@@ -24,6 +24,10 @@ class Application:
             t = self.genToken(self.db["tokens"][request.args.get("token")])
             del self.db["tokens"][request.args.get("token")]
             return t
+        
+        @self.app.route("/api/check")
+        def check():
+            return str(self.db["tokens"][request.args.get("token")])
             
 
     def loadJson(self):
